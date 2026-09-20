@@ -2,7 +2,7 @@ from flask import Flask
 import threading
 import bot
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -11,6 +11,6 @@ def home():
 def run_bot():
     bot.main()
 
-if name == "main":
+if name == "__main__":
     threading.Thread(target=run_bot).start()
-    app.run(host='0.0.0.0', port=8080
+    app.run(host='0.0.0.0', port=8080)
